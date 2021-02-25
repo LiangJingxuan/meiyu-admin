@@ -1,27 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// 加载进度条
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
+// 路由配置
+import routes from './routes'
 
 Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
 const router = new VueRouter({
   routes
+})
+
+// 拦截器
+router.beforeEach((to, from, next) => {
+  if (to.path !== '/login') {
+
+  }
+  nprogress.start()
+  next()
+})
+router.afterEach(() => {
+  nprogress.done()
 })
 
 export default router
