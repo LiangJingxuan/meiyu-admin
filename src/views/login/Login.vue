@@ -149,7 +149,7 @@ export default {
   filter:alpha(opacity=85);
   width: 730px;
   height: 430px;
-  margin: 15% auto;
+  margin: 10% auto;
   background-color: #ffffff;
   border-radius: 100px 0px 100px 0px;
   box-shadow: 4px 4px 0px #0000004a;
