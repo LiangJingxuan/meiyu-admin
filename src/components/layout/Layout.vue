@@ -32,15 +32,14 @@
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
         <a-row>
-          <a-col :span="6">
+          <a-col :span="12">
             <a-icon
               class="trigger"
               :type="collapsed ? 'menu-unfold' : 'menu-fold'"
               @click="() => (collapsed = !collapsed)"
             />
           </a-col>
-          <a-col :span="12"></a-col>
-          <a-col :span="6" class="header_right">
+          <a-col :span="12" class="header_right">
             <a-dropdown-button>
               梁景轩
               <a-menu slot="overlay">
