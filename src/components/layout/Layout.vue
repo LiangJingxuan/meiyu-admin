@@ -18,13 +18,19 @@
         <a-menu-item key="/house">
           <router-link to="/house">
             <a-icon type="key" />
-            <span>房源管理</span>
+            <span>商品管理</span>
           </router-link>
         </a-menu-item>
         <a-menu-item key="/client">
           <router-link to="/client">
             <a-icon type="team" />
-            <span>客源管理</span>
+            <span>攻略管理</span>
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="/client">
+          <router-link to="/client">
+            <a-icon type="team" />
+            <span>客户管理</span>
           </router-link>
         </a-menu-item>
       </a-menu>
