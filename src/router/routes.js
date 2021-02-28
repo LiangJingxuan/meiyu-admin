@@ -10,6 +10,11 @@ export default [
         name: 'Home',
         component: () => import('views/home/Home')
       },
+      {
+        path: '/goods',
+        name: 'Goods',
+        component: () => import('views/goods/Goods')
+      }
     ]
   },
   {

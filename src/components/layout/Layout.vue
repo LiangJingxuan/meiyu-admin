@@ -8,20 +8,27 @@
     >
       <div class="logo" v-show="!collapsed">兴商TS系统</div>
       <div class="logo" v-show="collapsed">TS</div>
-      <a-menu mode="inline" :default-selected-keys="[routed.path]">
+      <a-menu
+        mode="inline"
+        :default-selected-keys="[routed]"
+        :open-keys="[openKeys]"
+        @openChange="onOpenChange"
+      >
         <a-menu-item key="/home">
           <router-link to="/home">
             <a-icon type="home" />
             <span>home首页</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="/house">
-          <router-link to="/house">
-            <a-icon type="key" />
-            <span>商品管理</span>
-          </router-link>
-        </a-menu-item>
-        <a-menu-item key="/client">
+        <a-sub-menu key="sub1">
+          <span slot="title"><a-icon type="key" />商品管理</span>
+          <a-menu-item key="/goods">
+            <router-link to="/goods">
+              <span>自由行</span>
+            </router-link>
+          </a-menu-item>
+        </a-sub-menu>
+        <!-- <a-menu-item key="/client">
           <router-link to="/client">
             <a-icon type="team" />
             <span>攻略管理</span>
@@ -32,7 +39,7 @@
             <a-icon type="team" />
             <span>客户管理</span>
           </router-link>
-        </a-menu-item>
+        </a-menu-item> -->
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -84,6 +91,7 @@ export default {
     ALayoutContent: Layout.Content,
     AMenu: Menu,
     AMenuItem: Menu.Item,
+    ASubMenu: Menu.SubMenu,
     AIcon: Icon,
     ADropdownButton: Dropdown.Button,
     ARow: Row,
@@ -92,11 +100,37 @@ export default {
   data() {
     return {
       collapsed: false,
+      openKeys: "",
     };
+  },
+  created() {
+    if (this.routed === "/goods") {
+      this.openKeys = "sub1";
+    } else {
+      this.openKeys = "";
+    }
   },
   computed: {
     routed() {
-      return this.$route;
+      return this.$route.path;
+    },
+  },
+  methods: {
+    onOpenChange(openKeys) {
+      if (openKeys.length !== 0) {
+        this.openKeys = openKeys[1];
+      } else {
+        this.openKeys = "";
+      }
+    },
+  },
+  watch: {
+    $route: function () {
+      if (this.routed === "/goods") {
+      this.openKeys = "sub1";
+    } else {
+      this.openKeys = "";
+    }
     },
   },
 };
