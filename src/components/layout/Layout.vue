@@ -21,7 +21,10 @@
           </router-link>
         </a-menu-item>
         <a-sub-menu key="sub1">
-          <span slot="title"><a-icon type="key" />商品管理</span>
+          <span slot="title">
+            <a-icon type="key" />
+            <span v-show="!collapsed">商品管理</span>
+          </span>
           <a-menu-item key="/goods">
             <router-link to="/goods">
               <span>自由行</span>
@@ -127,10 +130,10 @@ export default {
   watch: {
     $route: function () {
       if (this.routed === "/goods") {
-      this.openKeys = "sub1";
-    } else {
-      this.openKeys = "";
-    }
+        this.openKeys = "sub1";
+      } else {
+        this.openKeys = "";
+      }
     },
   },
 };
