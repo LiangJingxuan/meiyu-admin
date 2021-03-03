@@ -10,14 +10,24 @@
       <a-col :span="18">
         <div class="input">
           <a-row>
-            <a-col :span="7">
-              <p class="left">
-                <span>北京</span>出发
+            <a-col :span="5">
+              <p class="left"><span>北京</span>出发</p>
+            </a-col>
+            <a-col :span="2">
+              <p class="center">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#iconjiantou"></use>
+                </svg>
               </p>
             </a-col>
-            <a-col :span="1"> </a-col>
-            <a-col :span="12"></a-col>
-            <a-col :sapn="4"></a-col>
+            <a-col :span="14">
+              <a-input value="英国" />
+            </a-col>
+            <a-col :span="3">
+              <p class="right">
+                <a-icon type="search" />
+              </p>
+            </a-col>
           </a-row>
         </div>
       </a-col>
@@ -26,12 +36,14 @@
 </template>
 
 <script>
-import { Row, Col } from "ant-design-vue";
+import { Row, Col, Input, Icon } from "ant-design-vue";
 export default {
   name: "Index",
   components: {
     ARow: Row,
     ACol: Col,
+    AInput: Input,
+    AIcon: Icon,
   },
 };
 </script>
@@ -54,13 +66,38 @@ export default {
   .input {
     width: 100%;
     height: 40px;
+    line-height: 30px;
     background-color: #ff9d00;
     border-radius: 3px;
     padding: 5px;
     overflow: hidden;
-    margin-top: 20px;
     .left {
       background: #fff;
+      border-radius: 2px;
+      height: 30px;
+      cursor: pointer;
+      span {
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+        margin: 0 10px;
+      }
+    }
+    .center {
+      color: #fff;
+      text-align: center;
+    }
+    .right {
+      text-align: center;
+      cursor: pointer;
+      border-radius: 2px;
+      height: 30px;
+      transition: all 0.5s;
+      color: #fff;
+      font-size: 25px;
+      &:hover {
+        background-color: #ff8a00;
+      }
     }
   }
 }
