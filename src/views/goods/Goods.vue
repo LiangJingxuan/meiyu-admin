@@ -1,6 +1,10 @@
 <template>
   <div>
     <SearchInput></SearchInput>
+    <div v-limit="5">dsa565da65d6as56dadada56sd5a6ds</div>
+    <center>
+      {{ 1 | sex }}
+    </center>
   </div>
 </template>
 
@@ -17,5 +21,4 @@ export default {
 </script>
 
 <style>
-
 </style>
