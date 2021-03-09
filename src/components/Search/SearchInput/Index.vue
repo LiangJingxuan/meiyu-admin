@@ -67,7 +67,7 @@ export default {
     width: 100%;
     height: 40px;
     line-height: 30px;
-    background-color: #ff9d00;
+    background-color: #5ba5ef;
     border-radius: 3px;
     padding: 5px;
     overflow: hidden;
@@ -96,7 +96,7 @@ export default {
       color: #fff;
       font-size: 25px;
       &:hover {
-        background-color: #ff8a00;
+        background-color: #7dbcfb;
       }
     }
   }
