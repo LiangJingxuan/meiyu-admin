@@ -1,12 +1,17 @@
 <template>
   <div>
-    home.....
+    <!-- <calender /> -->
   </div>
 </template>
 
 <script>
+import Calender from '../../components/calendar/Calender'
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    Calender
+  }
 }
 </script>
 
