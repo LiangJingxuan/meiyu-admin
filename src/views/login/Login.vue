@@ -8,10 +8,11 @@
         <a-card
           title="美遇 · 后台管理系统"
           :headStyle="{
-            color: '#666',
+            color: '#000',
             textAlign: 'center',
             border: 'none',
             fontSize: '18px',
+            fontWeight: 'bold'
           }"
           :bodyStyle="{ padding: 0, marginTop: '20px' }"
           :bordered="false"

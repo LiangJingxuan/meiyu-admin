@@ -6,8 +6,8 @@
       :trigger="null"
       collapsible
     >
-      <div class="logo" v-show="!collapsed">兴商TS系统</div>
-      <div class="logo" v-show="collapsed">TS</div>
+      <div class="logo" v-show="!collapsed">美遇管理系统</div>
+      <div class="logo" v-show="collapsed">美遇</div>
       <a-menu
         mode="inline"
         :default-selected-keys="[routed]"
@@ -154,11 +154,13 @@ export default {
   }
   .logo {
     text-align: center;
-    line-height: 32px;
-    height: 32px;
-    background: #eee;
-    margin: 16px;
+    line-height: 70px;
+    height: 70px;
+    background: #1890ff;
     overflow: hidden;
+    font-weight: bold;
+    font-size: 25px;
+    color: #e6f7ff;
   }
   .ant-layout-header {
     .ant-dropdown-button {
