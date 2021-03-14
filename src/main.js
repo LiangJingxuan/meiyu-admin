@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import plugin from './plugin'
 
+import { message } from 'ant-design-vue'
+Vue.prototype.$message = message;
+
 Vue.config.productionTip = false
 Vue.use(plugin)
 new Vue({

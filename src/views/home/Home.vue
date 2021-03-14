@@ -13,18 +13,70 @@
       <tabs-item label="火车票"></tabs-item>
       <tabs-item label="汽车票"></tabs-item>
     </tabs> -->
-    <echarts />
-    
+    <a-row>
+      <a-col class="gutter-row" :xs="12" :sm="12" :md="12" :lg="12" :xl="6">
+        <gradient-card
+          :colors="['#759bff', '#843cf6']"
+          :content="{
+            title: '昨日新增客户',
+            info: '2997',
+            explain: '14 - March 2021',
+            icon: '',
+          }"
+        />
+      </a-col>
+      <a-col class="gutter-row" :xs="12" :sm="12" :md="12" :lg="12" :xl="6">
+        <gradient-card
+          :colors="['#fc5286', '#fbaaa2']"
+          :content="{
+            title: '昨日收益',
+            info: '889.8$',
+            explain: '14 - March 2021',
+            icon: '',
+          }"
+        />
+      </a-col>
+      <a-col class="gutter-row" :xs="12" :sm="12" :md="12" :lg="12" :xl="6">
+        <gradient-card
+          :colors="['#ffc480', '#ff763b']"
+          :content="{
+            title: '昨日电话回访',
+            info: '425',
+            explain: '14 - March 2021',
+            icon: '',
+          }"
+        />
+      </a-col>
+      <a-col class="gutter-row" :xs="12" :sm="12" :md="12" :lg="12" :xl="6">
+        <gradient-card
+          :colors="['#0e4cfd', '#6a8eff']"
+          :content="{
+            title: '昨日成交',
+            info: '983.7$',
+            explain: '14 - March 2021',
+            icon: '',
+          }"
+        />
+      </a-col>
+      <a-col :span="24">
+        <div class="panel">
+          <echarts />
+        </div>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script>
+import { Row, Col } from "ant-design-vue";
+
 import Calender from "../../components/calendar/Calender";
 import Pagination from "../../components/pagination/Pagination";
 import Tabs from "../../components/tabs/Tabs";
 import TabsItem from "../../components/tabs/TabsItem";
 
-import Echarts from '../../components/Echarts/Echarts'
+import GradientCard from "../../components/Card/GradientCard";
+import Echarts from "../../components/Echarts/Echarts";
 
 // 防抖
 function d(fn, time) {
@@ -52,11 +104,15 @@ function t(fn, time) {
 export default {
   name: "Home",
   components: {
+    ARow: Row,
+    ACol: Col,
+
     Calender,
     Pagination,
     Tabs,
     TabsItem,
     Echarts,
+    GradientCard,
   },
   data() {
     return {
@@ -72,4 +128,7 @@ export default {
 </script>
 
 <style>
+.gutter-row {
+  padding: 5px;
+}
 </style>

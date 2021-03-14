@@ -75,6 +75,8 @@
           padding: '24px',
           background: '#fff',
           minHeight: '280px',
+          height: 'auto',
+          display: 'table'
         }"
       >
         <router-view />

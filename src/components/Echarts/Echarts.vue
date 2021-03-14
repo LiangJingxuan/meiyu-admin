@@ -204,7 +204,7 @@ export default {
 
 <style lang="less" scoped>
 #echarts {
-  width: 80%;
+  width: 85%;
   height: 500px;
 }
 </style>

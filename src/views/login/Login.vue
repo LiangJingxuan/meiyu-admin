@@ -117,13 +117,15 @@ export default {
   methods: {
     loginSubmit(e) {
       e.preventDefault();
-      this.form.validateFields(async (err, values) => {
+      this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
           // const { data } = await user.login(values);
           // if (data.token) {
           //   this.$message.success("登陆成功!");
           // }
+          this.$message.success("登陆成功");
+          this.$router.push('/home')
         }
       });
     },
