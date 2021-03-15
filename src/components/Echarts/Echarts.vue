@@ -1,13 +1,15 @@
 <template>
-  <div id="echarts">...</div>
+  <div id="echarts" ref="echarts"></div>
 </template>
 
 <script>
 let echarts = require("echarts");
 
 export default {
+  name: "Echarts",
   data() {
     return {
+      chart: null,
       option: {
         color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
         title: {
@@ -192,12 +194,28 @@ export default {
       },
     };
   },
+  methods: {
+    // 初始化视图
+    initEchart() {
+      if (!this.chart) this.chart = echarts.init(this.$refs.echarts);
+      this.chart.setOption(this.option);
+    },
+    // 自适应
+    resizeEchart(ruin) {
+      if (this.chart) {
+        ruin
+          ? window.removeEventListener("resize", this.chart.resize)
+          : window.addEventListener("resize", this.chart.resize);
+      }
+    },
+  },
   mounted() {
-    let chart = echarts.init(document.getElementById("echarts"));
-    chart.setOption(this.option);
-    window.addEventListener("resize", function () {
-      chart.resize();
-    });
+    this.initEchart();
+    this.resizeEchart();
+  },
+  destroyed() {
+    // 防止内存泄漏  销毁事件
+    this.resizeEchart(true);
   },
 };
 </script>
