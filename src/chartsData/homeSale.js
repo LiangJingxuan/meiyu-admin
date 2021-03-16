@@ -1,7 +1,9 @@
+const echarts = require('echarts')
 export default {
   color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
   title: {
-    text: "数据分析",
+    text: "周销量统计",
+    left: "5%"
   },
   tooltip: {
     trigger: "axis",
@@ -13,11 +15,12 @@ export default {
     },
   },
   legend: {
-    data: ["Line 1", "Line 2", "Line 3", "Line 4", "Line 5"],
+    data: ["周边游", "跟团游", "当地游", "处境游", "签证"],
+    right: "5%"
   },
   toolbox: {
     feature: {
-      saveAsImage: {},
+      // saveAsImage: {},
     },
   },
   grid: {
@@ -40,7 +43,7 @@ export default {
   ],
   series: [
     {
-      name: "Line 1",
+      name: "周边游",
       type: "line",
       stack: "总量",
       smooth: true,
@@ -67,7 +70,7 @@ export default {
       data: [140, 232, 101, 264, 90, 340, 250],
     },
     {
-      name: "Line 2",
+      name: "跟团游",
       type: "line",
       stack: "总量",
       smooth: true,
@@ -94,7 +97,7 @@ export default {
       data: [120, 282, 111, 234, 220, 340, 310],
     },
     {
-      name: "Line 3",
+      name: "当地游",
       type: "line",
       stack: "总量",
       smooth: true,
@@ -121,7 +124,7 @@ export default {
       data: [320, 132, 201, 334, 190, 130, 220],
     },
     {
-      name: "Line 4",
+      name: "处境游",
       type: "line",
       stack: "总量",
       smooth: true,
@@ -148,7 +151,7 @@ export default {
       data: [220, 402, 231, 134, 190, 230, 120],
     },
     {
-      name: "Line 5",
+      name: "签证",
       type: "line",
       stack: "总量",
       smooth: true,
@@ -179,4 +182,4 @@ export default {
       data: [220, 302, 181, 234, 210, 290, 150],
     },
   ],
-}
+};

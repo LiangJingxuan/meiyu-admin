@@ -58,10 +58,19 @@
           }"
         />
       </a-col>
-      <a-col :span="24">
-        <div class="panel">
-          <echarts />
-        </div>
+      <a-col :span="24" class="panel">
+        <echarts style="width: 85%; height: 400px;" :option="option.homeSale" />
+      </a-col>
+    </a-row>
+    <a-row type="flex" justify="space-around">
+      <a-col class="gutter-row panel" :span="10">
+        <echarts style="width: 90%; height: 350px;" :option="option.homeOrder" />
+      </a-col>
+      <a-col class="gutter-row panel" :span="6">
+        <echarts style="width: 90%; height: 350px;" :option="option.homeOrder" />
+      </a-col>
+      <a-col class="gutter-row panel" :span="6">
+        <echarts style="width: 90%; height: 350px;" :option="option.homeOrder" />
       </a-col>
     </a-row>
   </div>
@@ -76,7 +85,10 @@ import Tabs from "../../components/tabs/Tabs";
 import TabsItem from "../../components/tabs/TabsItem";
 
 import GradientCard from "../../components/Card/GradientCard";
+
 import Echarts from "../../components/Echarts/Echarts";
+import homesaleCharts from '../../chartsData/homeSale'
+import homeOrderCharts from '../../chartsData/homeOrder'
 
 // 防抖
 function d(fn, time) {
@@ -117,12 +129,25 @@ export default {
   data() {
     return {
       aaa: 0,
+      // 图表数据
+      option: {
+        homeSale: {},
+        homeOrder: {},
+      },
     };
   },
   methods: {
     change(current) {
       console.log(current);
     },
+    // 图表
+    charts() {
+      this.option.homeSale = homesaleCharts;
+      this.option.homeOrder = homeOrderCharts;
+    },
+  },
+  created() {
+    this.charts();
   },
 };
 </script>

@@ -73,10 +73,9 @@
         :style="{
           margin: '24px 16px',
           padding: '24px',
-          background: '#fff',
           minHeight: '280px',
           height: 'auto',
-          display: 'table'
+          display: 'table',
         }"
       >
         <router-view />
@@ -86,6 +85,7 @@
 </template>
 <script>
 import { Layout, Menu, Icon, Dropdown, Row, Col } from "ant-design-vue";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "Layout",
@@ -104,7 +104,6 @@ export default {
   },
   data() {
     return {
-      collapsed: false,
       openKeys: "",
     };
   },
@@ -116,9 +115,15 @@ export default {
     }
   },
   computed: {
+    ...mapState(['isCollapse']),
     routed() {
       return this.$route.path;
     },
+    collapsed() {
+      console.log(this.isCollapse)
+      return this.isCollapse
+    }
+    
   },
   methods: {
     onOpenChange(openKeys) {

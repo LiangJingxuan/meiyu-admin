@@ -360,7 +360,8 @@
   }
 
   .panel {
-    margin-top: 40px;
-    padding: 50px 0;
-    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: #ffffff;
+    border-radius: 15px;
   }
