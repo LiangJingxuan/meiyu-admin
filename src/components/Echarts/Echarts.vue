@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 let echarts = require("echarts");
 
 export default {
@@ -27,6 +28,16 @@ export default {
       },
       deep: true,
     },
+    isCollapsed() {
+      setTimeout(() => {
+        this.chart.resize();
+      }, 300);
+    },
+  },
+  computed: {
+    ...mapState({
+      isCollapsed: (state) => state.collapsed,
+    }),
   },
   methods: {
     // 初始化

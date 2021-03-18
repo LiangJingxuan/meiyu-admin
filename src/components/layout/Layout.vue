@@ -52,7 +52,7 @@
             <a-icon
               class="trigger"
               :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-              @click="() => (collapsed = !collapsed)"
+              @click="collapsedToggle"
             />
           </a-col>
           <a-col :span="12" class="header_right">
@@ -86,6 +86,7 @@
 <script>
 import { Layout, Menu, Icon, Dropdown, Row, Col } from "ant-design-vue";
 import { mapState, mapMutations } from "vuex";
+import * as types from "../../store/types"
 
 export default {
   name: "Layout",
@@ -115,17 +116,16 @@ export default {
     }
   },
   computed: {
-    ...mapState(['isCollapse']),
+    ...mapState(["collapsed"]),
     routed() {
       return this.$route.path;
     },
-    collapsed() {
-      console.log(this.isCollapse)
-      return this.isCollapse
-    }
-    
   },
   methods: {
+    ...mapMutations({
+      isCollapsed: types.IS_COLLAPSED
+    }),
+    // SubMenu切换
     onOpenChange(openKeys) {
       if (openKeys.length !== 0) {
         this.openKeys = openKeys[1];
@@ -133,6 +133,10 @@ export default {
         this.openKeys = "";
       }
     },
+    // 折叠导航切换
+    collapsedToggle() {
+      this.isCollapsed()
+    }
   },
   watch: {
     $route: function () {
